@@ -34,14 +34,21 @@ flowchart LR
 
 ```mermaid
 stateDiagram-v2
-  [*] --> 대기_포장계측: 고객 포장 신청
-  대기_포장계측 --> 결제대기: 창고 계측·요금 입력
-  결제대기 --> 발송대기: 결제 완료
-  발송대기 --> 발송완료: 물류사 출단 + 송장 등록
-  발송대기 --> 주소수정대기: 출단 실패 (실명 불일치 등)
-  주소수정대기 --> 발송대기: 고객이 수령 정보 수정
-  발송완료 --> 완료
-  결제대기 --> 취소
+  state "포장·계측 대기" as REVIEW
+  state "결제 대기" as PAYMENT
+  state "발송 대기" as SHIP
+  state "주소 수정 대기" as FIX
+  state "발송 완료" as SHIPPED
+  state "완료" as DONE
+  state "취소" as CANCEL
+  [*] --> REVIEW: 고객 포장 신청
+  REVIEW --> PAYMENT: 창고 계측·요금 입력
+  PAYMENT --> SHIP: 결제 완료
+  SHIP --> SHIPPED: 물류사 출단 + 송장 등록
+  SHIP --> FIX: 출단 실패 (실명 불일치 등)
+  FIX --> SHIP: 고객이 수령 정보 수정
+  SHIPPED --> DONE
+  PAYMENT --> CANCEL
 ```
 
 **포인트** — 출단 실패를 "에러"가 아니라 **하나의 정식 상태**로 정의했습니다. 실패 사유(실명 불일치, 신분증 오류, 번호 실명 초과 등)를 기록하고 고객에게 알림을 보내, 고객이 수정하면 자동으로 발송 대기로 돌아갑니다. 직원이 개별 연락할 필요가 없어졌습니다.
