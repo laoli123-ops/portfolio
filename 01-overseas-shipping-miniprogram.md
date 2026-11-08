@@ -81,11 +81,11 @@ stateDiagram-v2
 
 ## 6. 화면
 
-> 개인정보는 마스킹 처리했습니다.
+> 개인정보·상호·창고 주소는 마스킹 처리했습니다. (테스트 계정 화면)
 
-| 고객: 홈 | 고객: 내 소포 | 고객: 주문/결제 | 관리자: 스캔 입고 |
-|---|---|---|---|
-| ![](./images/mp-home.png) | ![](./images/mp-package.png) | ![](./images/mp-order.png) | ![](./images/admin-scan.png) |
+| 홈 — 소포 사전등록·창고 주소·상태 요약 | 내 소포 — 상태별 탭·검색·발송 신청 | 마이페이지 — 주소·주문·통관·운임 계산 |
+|---|---|---|
+| <img src="./images/mp-home.png" width="240"> | <img src="./images/mp-package.png" width="240"> | <img src="./images/mp-mycenter.png" width="240"> |
 
 ## 7. 회고
 - **잘한 점**: 예외 상황을 상태로 모델링하니 직원의 수동 연락이 줄고 이력 추적이 쉬워졌다.
