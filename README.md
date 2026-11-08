@@ -1,4 +1,4 @@
-# [여권 영문명] ([한글명]) — Backend Developer Portfolio
+# LI JINJIAN (리진잔) — Backend Developer Portfolio
 
 > 물류·구매 현장의 수작업 업무를 **기획부터 배포·운영까지 1인으로** 시스템화한 백엔드 개발자입니다.
 > Node.js · TypeScript · PostgreSQL · C# | 중국어 원어민 · 한국어 TOPIK 4급
